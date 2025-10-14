@@ -28,6 +28,7 @@ export default function Tracking() {
     });
 
     toast.success("Package located");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -41,19 +42,19 @@ export default function Tracking() {
         </div>
 
         {/* Order ID Input */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8 space-y-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-muted-foreground">Order ID</label>
-              <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex flex-col gap-3">
                 <Input
                   type="text"
                   placeholder="Enter your order ID"
                   value={orderId}
                   onChange={(e) => setOrderId(e.target.value)}
-                  className="flex-1 bg-input text-foreground"
+                  className="w-full bg-input text-foreground"
                 />
-                <Button onClick={handleTrack} className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
+                <Button onClick={handleTrack} className="bg-primary hover:bg-primary/90 w-full">
                   Track Package
                 </Button>
               </div>
@@ -63,7 +64,7 @@ export default function Tracking() {
 
         {/* Tracking Timeline */}
         {tracking && (
-          <Card className="paper-twist border-border bg-card">
+          <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
             <CardContent className="p-8 space-y-6">
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-foreground mb-2">Package Status</h2>
@@ -111,7 +112,7 @@ export default function Tracking() {
         )}
 
         {/* Security Notice */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-6 text-center space-y-2">
             <p className="text-sm text-muted-foreground">
               📦 All shipments are tracked through encrypted channels

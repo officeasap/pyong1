@@ -1,0 +1,492 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        PYONGMINT™ SITE SPECIFICATIONS
+                        Frontend-Only Encrypted Vault Interface
+═══════════════════════════════════════════════════════════════════════════════
+
+🔱 BRAND IDENTITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Site Title: PyongMint™
+Voice: Direct. Encrypted. Elite.
+Tone: Ritualistic, forensic, mythic
+Target: Chosen operators
+
+
+🧠 GLOBAL CREED BLOCK (MANDATORY ON ALL PAGES)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Location: Bottom of every page
+Pages: /, /product, /payment, /order, /tracking, /about, /contact
+
+English Creed:
+  Text: "You order. We deliver. No apologies."
+  Class: creed-en
+  Animation: animate-zoom-blink-out
+  Color: white (text-foreground)
+
+Korean Creed:
+  Text: "당신이 명령합니다. 우리는 수행합니다. 사과는 없습니다."
+  Class: creed-ko
+  Animation: animate-zoom-blink-in
+  Color: #77d96a
+  Font Weight: bold
+
+Styling:
+  - paper-twist shadow
+  - rounded-[16px]
+  - border with border-border
+  - bg-card background
+  - Centered layout
+  - Animations loop infinitely
+
+
+🎨 DESIGN SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Color Palette (HSL Format):
+  --background: 0 0% 7%         /* Primary Black */
+  --foreground: 0 0% 98%        /* White text */
+  --card: 0 0% 12%              /* Obsidian Gray */
+  --primary: 217 91% 60%        /* Signal Blue #5BA3FF */
+  --secondary: 76 89% 61%       /* Signal Green #c8f051 */
+  --accent: 45 93% 58%          /* Crypto Gold #E8C547 */
+  --neon-green: 120 60% 65%     /* For Korean creed #77d96a */
+
+Custom Utilities:
+  .paper-twist: Multi-layer shadow (0 1px 3px, 0 2px 8px, 0 4px 16px)
+  .signal-glow: Box shadow 0 0 20px rgba(200, 240, 81, 0.6)
+  .crypto-glow: Box shadow 0 0 30px rgba(251, 191, 36, 0.4)
+  .frame-bounce: Animation bounce 2s ease-in-out infinite
+
+Typography:
+  System font stack
+  Headings: Bold weight
+  Body: 16px
+  Labels: 14px
+
+Layout:
+  12-column grid
+  Container: 1280px max-width
+  Vertical padding: 64px (py-16)
+  Mobile breakpoint: 768px
+
+
+🖼️ FRAME & CARD STYLING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+All frames across all pages must have:
+  - frame-bounce animation
+  - shadow-[0_0_20px_rgba(200,240,81,0.6)]
+  - Applies to all Card components
+
+
+🔗 NAVIGATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header Menu Order:
+  1. Home (/)
+  2. About (/about)
+  3. Product (/product)
+  4. Payment (/payment)
+  5. Order (/order)
+  6. Tracking (/tracking)
+  7. Contact (/contact)
+
+Button Styling:
+  - Radius: rounded-[18px]
+  - Hover: animate-bounce effect
+  - Shadow: hover:shadow-[0_0_20px_rgba(200,240,81,0.6)]
+  - Hover color: bg-[#c8f051] text-background
+  - Active color: bg-[#c8f051] text-background
+
+Scroll Behavior:
+  - On every menu click: window.scrollTo({ top: 0, behavior: 'smooth' })
+  - On every button click: window.scrollTo({ top: 0, behavior: 'smooth' })
+
+
+💬 TELEGRAM CHAT ASSISTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Component: TelegramChatButton
+Location: Fixed bottom-right (bottom-6 right-6)
+Icon: MessageCircle (lucide-react)
+Behavior: Opens https://t.me/pyongmint_bot in new tab
+No message prefill
+Appears on every page
+Styling:
+  - w-14 h-14 rounded-full
+  - bg-primary hover:bg-primary/90
+  - shadow-[0_0_20px_rgba(200,240,81,0.6)]
+  - animate-bounce
+  - z-50
+
+
+📄 PAGE SPECIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HOME PAGE (/)
+──────────────────────────────────────────────────────────────────────────────
+Hero Section:
+  - Framer Motion animated title
+  - Animation: initial: { opacity: 0, scale: 0.9 }
+  - whileInView: { opacity: 1, scale: 1 }
+  - whileHover: { scale: 1.08, rotateX: 5, rotateY: 5 }
+  - Gradient: from-[#5BA3FF] via-[#c8f051] to-[#E8C547]
+  - Text: "The Note That Made Counterfeit Obsolete"
+  - Subheading: "Supernote is not a replica. It's a resurrection."
+
+Flipping Image:
+  - Alternates between supernote-front.jpg and supernote-back.jpg
+  - Interval: 3000ms
+  - Transition: duration-500
+
+Feature Cards (4):
+  1. Forensic Grade
+  2. Zero-Knowledge
+  3. Color-Shift Alchemy
+  4. UV-Reactive Seals
+  Each with: frame-bounce, shadow-[0_0_20px_rgba(200,240,81,0.6)]
+
+CTA Buttons:
+  - "Explore the Vault" → /product
+  - "Payment Gateway" → /payment
+  Both with scroll to top on click
+
+
+PRODUCT PAGE (/product)
+──────────────────────────────────────────────────────────────────────────────
+Title: "The Vault Collection"
+Flipping Image: Same as home, interval 3500ms
+Feature Grid (6 items):
+  - Forensic Grade Security
+  - Instant Verification
+  - Encrypted Transactions
+  - Optical Variable Ink
+  - UV-Reactive Elements
+  - Indistinguishable
+
+Technical Specifications Card:
+  - 99.9% Accuracy Rating
+  - 256-bit Encryption Standard
+  - ∞ Operational Security
+
+
+PAYMENT PAGE (/payment)
+──────────────────────────────────────────────────────────────────────────────
+Title: "Payment Gateway"
+Cryptocurrency Cards (4):
+  1. Bitcoin (BTC) → /payment/btc
+  2. Ethereum (ETH) → /payment/eth
+  3. USD Coin (USDC) → /payment/usdc
+  4. Tether (USDT) → /payment/usdt
+
+Info Card:
+  - "Encrypted Transactions Only"
+  - CTA: "Proceed to Order" → /order
+
+
+PAYMENT CRYPTO PAGE (/payment/:crypto)
+──────────────────────────────────────────────────────────────────────────────
+Dynamic route for BTC, ETH, USDC, USDT
+QR Code: Static SVG placeholder (to be replaced with real QR generator)
+Wallet Address: Display for selected crypto
+Telegram Button: "Contact via Telegram" → https://t.me/pyongmint_bot
+Creed: "Scan. Pay. Forward."
+
+
+ORDER PAGE (/order)
+──────────────────────────────────────────────────────────────────────────────
+Title: "Place Your Order"
+
+Standard Packages Card:
+  - Checkbox selection
+  - Package options:
+    1. Operator Pack (10 notes, $500)
+    2. Elite Pack (50 notes, $2,250)
+    3. Sovereign Pack (100 notes, $4,000)
+    4. Vault Collection (500 notes, $18,000)
+  - Selecting package clears custom amount
+
+Custom Amount Card:
+  - Input field with emoji: 💸 Custom Amount
+  - Input styling: rounded-[12px], text-[#ade5f7]
+  - Real-time 15% crypto charge calculation
+  - Display: "Crypto Charge (15%): $X" in color #7ef178
+  - Entering custom amount clears package selection
+
+Submit Button:
+  - "Proceed to Telegram Confirmation"
+  - Opens: https://t.me/pyongmint_bot?start=<encoded_message>
+  - Message format: "Order: [Package Name]" or "Custom Order: X notes"
+
+Security Notice:
+  - 🔒 All orders processed through encrypted Telegram channel
+  - Zero-knowledge protocol enforced
+
+
+TRACKING PAGE (/tracking)
+──────────────────────────────────────────────────────────────────────────────
+Title: "Track Your Order"
+
+Order ID Input:
+  - Mobile layout: Input and button stack vertically (flex-col gap-3)
+  - Desktop: Same vertical layout for consistency
+  - Button: "Track Package" (full width)
+
+Mock Tracking Timeline (4 stages):
+  1. Air Dispatch ✈️ (Plane icon)
+  2. Vault-Drop 📍 (MapPin icon)
+  3. Secured Package 📦 (Package icon)
+  4. Final Seal 🔒 (Lock icon)
+
+Security Notice:
+  - 📦 All shipments tracked through encrypted channels
+  - Vault-drop locations classified until delivery
+
+
+ABOUT PAGE (/about)
+──────────────────────────────────────────────────────────────────────────────
+Title: "The Forbidden Genesis"
+
+Origin Story Card:
+  - Image placeholder at top: 🏛️ emoji in gradient background
+  - Size: w-32 h-32, rounded-lg
+  - Gradient: from-primary via-secondary to-accent
+  - Story text about Supernote creation
+
+Brand Pillars (3 cards):
+  1. Indistinguishable
+  2. Flawless
+  3. Verified
+
+Technical Excellence Card:
+  - Intaglio Printing
+  - Cotton-Linen Blend
+  - Color-Shifting Ink
+  - UV Security Features
+
+Final Statement:
+  - "This is not replication. This is resurrection."
+  - "PyongMint™ - Where sovereignty meets perfection."
+
+
+CONTACT PAGE (/contact)
+──────────────────────────────────────────────────────────────────────────────
+Title: "Secure Contact"
+
+Contact Form:
+  - Name input
+  - Message textarea
+  - Submit button: "Send via Telegram"
+  - Opens: https://t.me/pyongmint_bot?start=<encoded_message>
+  - Message format: "Name: [name]\n\nMessage: [message]"
+
+Direct Channels:
+  - Telegram: @pyongmint_bot
+  - PGP: Available on request
+  - Signal: Secure channel only
+  - Matrix: End-to-end encrypted
+
+Security Notice:
+  - 🔒 All communications routed through encrypted channels
+  - No message history stored
+
+
+🤖 TELEGRAM BOT PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Bot Username: @pyongmint_bot
+Endpoint: https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage
+
+Usage Contexts:
+  1. Contact form submissions
+  2. Order notifications
+  3. Payment confirmations
+  4. Customer service
+
+Message Flow:
+  1. User fills form/makes selection
+  2. Message encoded with encodeURIComponent()
+  3. Deep link created: https://t.me/pyongmint_bot?start=<encoded_message>
+  4. Opens in new tab (_blank)
+  5. User manually presses "Send" in Telegram
+  6. Admin receives and replies manually
+
+Admin-Controlled: No automation, no bot replies, no webhook logic
+
+
+🔐 BACKEND PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Supabase: Read-only access
+No outbound communication
+No triggers
+No logs
+
+Data Sources:
+  - Package metadata
+  - Tracking status
+  - Vault-drop location
+
+
+🔐 ENVIRONMENT VARIABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+File: .env (reference only, not in repository)
+
+# Telegram Bot
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+
+# Supabase
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+DATABASE_URL=your_database_url
+
+# Tracking API
+API_KEY=your_tracking_api_key
+
+⚠️ CRITICAL: Never hardcode secrets in source code
+
+
+🎭 ANIMATIONS & INTERACTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Keyframes:
+  @keyframes zoom-blink-out:
+    0%, 100%: transform: scale(1), opacity: 1
+    50%: transform: scale(1.05), opacity: 0.8
+  
+  @keyframes zoom-blink-in:
+    0%, 100%: transform: scale(1), opacity: 1
+    50%: transform: scale(0.95), opacity: 0.9
+  
+  @keyframes bounce:
+    0%, 100%: transform: translateY(0)
+    50%: transform: translateY(-10px)
+
+Animation Classes:
+  .animate-zoom-blink-out: zoom-blink-out 3s ease-in-out infinite
+  .animate-zoom-blink-in: zoom-blink-in 3s ease-in-out infinite
+  .animate-bounce: bounce 2s ease-in-out infinite
+
+Framer Motion (Home Hero):
+  - Initial: opacity: 0, scale: 0.9
+  - WhileInView: opacity: 1, scale: 1
+  - Transition: duration: 1.5s, ease: easeOut
+  - WhileHover: scale: 1.08, rotateX: 5, rotateY: 5
+  - Spring: stiffness: 200, damping: 10
+
+
+📦 TECHNOLOGY STACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Frontend Framework: React 18.3.1
+Build Tool: Vite 4+
+Routing: React Router DOM 6.30.1
+Styling: Tailwind CSS 3.x
+UI Components: shadcn/ui (Radix UI primitives)
+Animations: Framer Motion (latest)
+Icons: Lucide React 0.462.0
+Notifications: Sonner 1.7.4
+State Management: React hooks (useState, useEffect)
+
+
+🚀 DEPLOYMENT PIPELINE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Build Command: npm run build (Vite)
+Node.js Version: 24.x compatibility
+Output Directory: dist/
+Deployment Target: Vercel (recommended)
+Deployment Type: Static site
+
+PWA Configuration:
+  - manifest.json
+  - service-worker.js
+  - App icons (multiple sizes)
+
+
+📱 RESPONSIVE DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Breakpoints:
+  - Mobile: < 768px
+  - Tablet: 768px - 1024px
+  - Desktop: > 1024px
+
+Mobile-Specific:
+  - Navigation: Hamburger menu with slide-down
+  - Cards: Single column grid
+  - Images: Full width aspect-video
+  - Buttons: Full width on mobile
+  - Tracking page: Vertical stack for input/button
+
+Desktop-Specific:
+  - Navigation: Horizontal button menu
+  - Cards: Multi-column grid (2-4 columns)
+  - Images: Constrained max-width
+  - Buttons: Auto width with padding
+
+
+🔒 SECURITY CONSIDERATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. All external communications through Telegram
+2. No direct API calls from frontend
+3. Message encoding with encodeURIComponent()
+4. User controls when to send via Telegram
+5. No localStorage of sensitive data
+6. No analytics tracking
+7. No third-party scripts
+8. HTTPS only in production
+
+
+📚 COMPONENT ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Core Components:
+  - Layout.tsx: Main layout wrapper with Navigation, CreedBlock, TelegramChatButton
+  - Navigation.tsx: Header navigation with mobile menu
+  - CreedBlock.tsx: Global creed footer
+  - TelegramChatButton.tsx: Fixed chat button
+
+Page Components:
+  - Home.tsx: Landing page with hero and features
+  - Product.tsx: Product showcase
+  - Payment.tsx: Crypto selection
+  - PaymentCrypto.tsx: Dynamic crypto payment page
+  - Order.tsx: Order form with packages and custom amount
+  - Tracking.tsx: Order tracking interface
+  - About.tsx: Origin story and brand pillars
+  - Contact.tsx: Contact form and channels
+
+UI Components (shadcn/ui):
+  - Button, Card, Input, Textarea, Checkbox, Label
+  - All styled with Tailwind CSS
+  - All use design system tokens
+
+
+🎯 KEY BEHAVIORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Scroll to Top: All navigation and button clicks scroll page to top
+2. Mobile Menu Close: Menu auto-closes on link click
+3. Package/Custom Toggle: Selecting one clears the other
+4. Image Flipping: Automated interval-based image switching
+5. Form Validation: Toast notifications for errors
+6. External Links: All Telegram links open in new tab (_blank)
+7. Animation Sync: Creed block animations loop infinitely
+8. Hover Effects: Scale transforms and glow effects
+9. Real-time Calculation: 15% crypto charge updates on input
+
+
+📋 TESTING CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] All pages render correctly
+[ ] Navigation scrolls to top on click
+[ ] Mobile menu closes on link selection
+[ ] Telegram links open in new tab with correct message
+[ ] Order page package/custom toggle works
+[ ] 15% crypto charge calculation is accurate
+[ ] Tracking page input/button stack vertically on mobile
+[ ] All cards have frame-bounce animation
+[ ] All cards have signal-glow shadow
+[ ] Creed block appears on all pages
+[ ] TelegramChatButton appears on all pages
+[ ] Hero title has framer-motion animation
+[ ] About page has image placeholder
+[ ] Contact form validates and opens Telegram
+[ ] All colors use design system tokens
+[ ] Responsive design works on all breakpoints
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                            END OF SPECIFICATIONS
+                       This is the ritual contract for PyongMint™
+                    All updates must reference this sacred document
+═══════════════════════════════════════════════════════════════════════════════

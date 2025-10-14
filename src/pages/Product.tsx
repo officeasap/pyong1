@@ -37,7 +37,7 @@ export default function Product() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
         {/* Flipping Image */}
         <div className="order-2 lg:order-1">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden paper-twist uv-glow">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden paper-twist signal-glow frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
             <img
               src={isFlipped ? supernoteBack : supernoteFront}
               alt="Supernote"
@@ -51,7 +51,7 @@ export default function Product() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="paper-twist border-border bg-card hover:scale-105 transition-transform duration-300"
+              className="paper-twist border-border bg-card hover:scale-105 transition-transform duration-300 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]"
             >
               <CardContent className="p-4 space-y-2">
                 <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
@@ -67,7 +67,7 @@ export default function Product() {
 
       {/* Specifications */}
       <div className="max-w-4xl mx-auto">
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8 space-y-6">
             <h2 className="text-2xl font-bold text-foreground text-center">Technical Specifications</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">

@@ -23,8 +23,8 @@ All colors MUST be HSL.
     --primary: 217 91% 60%;  /* Signal Blue */
     --primary-foreground: 0 0% 98%;
     
-    --secondary: 268 86% 67%;  /* UV Violet */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 76 89% 61%;  /* Signal Green #c8f051 */
+    --secondary-foreground: 0 0% 7%;
     
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
@@ -42,13 +42,13 @@ All colors MUST be HSL.
     /* Custom Tokens */
     --obsidian: 0 0% 12%;
     --signal-blue: 217 91% 60%;
-    --uv-violet: 268 86% 67%;
+    --signal-green: 76 89% 61%;  /* #c8f051 */
     --crypto-gold: 45 93% 58%;
     --neon-green: 120 60% 65%;  /* For Korean creed */
     
     /* Shadows */
     --paper-twist: 0 0% 0% / 0.3;
-    --uv-glow: 268 86% 67% / 0.5;
+    --signal-glow: 76 89% 61% / 0.6;
     
     --radius: 1rem;  /* 16px rounded corners */
   }
@@ -62,8 +62,12 @@ All colors MUST be HSL.
       0 4px 16px 0 rgba(0, 0, 0, 0.15);
   }
   
-  .uv-glow {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  .signal-glow {
+    box-shadow: 0 0 20px rgba(200, 240, 81, 0.6);
+  }
+  
+  .frame-bounce {
+    animation: bounce 2s ease-in-out infinite;
   }
   
   .crypto-glow {

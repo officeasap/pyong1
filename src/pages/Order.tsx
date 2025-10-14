@@ -2,11 +2,17 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 
 export default function Order() {
   const [customAmount, setCustomAmount] = useState("");
   const [selectedPackage, setSelectedPackage] = useState("");
+  
+  const customValue = parseFloat(customAmount) || 0;
+  const cryptoCharge = customValue * 0.15;
+  const chargeDisplay = cryptoCharge;
 
   const packages = [
     { name: "Operator Pack", quantity: "10 notes", price: "$500", value: "operator" },
@@ -28,6 +34,7 @@ export default function Order() {
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://t.me/pyongmint_bot?start=${encodedMessage}`, "_blank");
     toast.success("Opening Telegram for order confirmation");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -41,56 +48,67 @@ export default function Order() {
         </div>
 
         {/* Package Selection */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Standard Packages</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left py-4 px-4 text-sm font-medium text-muted-foreground">Package</th>
-                    <th className="text-left py-4 px-4 text-sm font-medium text-muted-foreground">Quantity</th>
-                    <th className="text-left py-4 px-4 text-sm font-medium text-muted-foreground">Price</th>
-                    <th className="text-center py-4 px-4 text-sm font-medium text-muted-foreground">Select</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {packages.map((pkg) => (
-                    <tr key={pkg.value} className="border-b border-border hover:bg-muted/20">
-                      <td className="py-4 px-4 font-medium text-foreground">{pkg.name}</td>
-                      <td className="py-4 px-4 text-muted-foreground">{pkg.quantity}</td>
-                      <td className="py-4 px-4 text-accent font-bold">{pkg.price}</td>
-                      <td className="py-4 px-4 text-center">
-                        <Button
-                          variant={selectedPackage === pkg.value ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => setSelectedPackage(pkg.value)}
-                        >
-                          {selectedPackage === pkg.value ? "Selected" : "Select"}
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="space-y-4">
+              {packages.map((pkg) => (
+                <div 
+                  key={pkg.value} 
+                  className="flex items-center space-x-4 p-4 rounded-lg border border-border hover:bg-muted/20 transition-colors"
+                >
+                  <Checkbox
+                    id={pkg.value}
+                    checked={selectedPackage === pkg.value}
+                    onCheckedChange={(checked) => {
+                      if (checked) {
+                        setSelectedPackage(pkg.value);
+                        setCustomAmount("");
+                      } else {
+                        setSelectedPackage("");
+                      }
+                    }}
+                  />
+                  <Label htmlFor={pkg.value} className="flex-1 cursor-pointer">
+                    <div className="font-medium text-foreground">{pkg.name}</div>
+                    <div className="text-sm text-muted-foreground">{pkg.quantity}</div>
+                  </Label>
+                  <div className="text-accent font-bold">{pkg.price}</div>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
 
         {/* Custom Amount */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8 space-y-4">
             <h2 className="text-2xl font-bold text-foreground">Custom Amount</h2>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-muted-foreground">Number of Notes</label>
+            <div className="space-y-2 mb-4">
+              <Label htmlFor="custom-amount" className="text-sm font-semibold">
+                💸 Custom Amount
+              </Label>
               <Input
-                type="number"
+                id="custom-amount"
+                type="text"
                 placeholder="Enter custom amount"
                 value={customAmount}
-                onChange={(e) => setCustomAmount(e.target.value)}
-                className="bg-input text-foreground"
+                onChange={(e) => {
+                  setCustomAmount(e.target.value);
+                  setSelectedPackage("");
+                }}
+                className="rounded-[12px] text-[#ade5f7]"
               />
             </div>
+            
+            {customAmount && (
+              <div className="mb-6 text-center text-lg font-bold">
+                Crypto Charge (15%):{" "}
+                <span style={{ color: "#7ef178" }}>
+                  ${chargeDisplay.toLocaleString()}
+                </span>
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -102,7 +120,7 @@ export default function Order() {
         </div>
 
         {/* Security Notice */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-6 text-center space-y-2">
             <p className="text-sm text-muted-foreground">
               🔒 All orders are processed through our encrypted Telegram channel

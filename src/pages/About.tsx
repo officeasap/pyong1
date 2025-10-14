@@ -34,8 +34,13 @@ export default function About() {
           </p>
         </div>
 
-        <Card className="paper-twist border-border bg-card uv-glow">
+        <Card className="paper-twist border-border bg-card signal-glow frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8 space-y-6">
+            <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden">
+              <div className="w-full h-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
+                <span className="text-4xl">🏛️</span>
+              </div>
+            </div>
             <h2 className="text-3xl font-bold text-foreground">Origin Story</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -60,7 +65,7 @@ export default function About() {
             {pillars.map((pillar, index) => (
               <Card
                 key={index}
-                className="paper-twist border-border bg-card hover:uv-glow transition-all duration-300 hover:scale-105"
+                className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]"
               >
                 <CardContent className="p-6 space-y-4 text-center">
                   <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center">
@@ -75,7 +80,7 @@ export default function About() {
         </div>
 
         {/* Technical Excellence */}
-        <Card className="paper-twist border-border bg-card">
+        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
           <CardContent className="p-8 space-y-6">
             <h2 className="text-3xl font-bold text-foreground">Technical Excellence</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -113,7 +118,7 @@ export default function About() {
             This is not replication. This is resurrection.
           </p>
           <p className="text-muted-foreground">
-            PyongMint™ Ascendant - Where sovereignty meets perfection.
+            PyongMint™ - Where sovereignty meets perfection.
           </p>
         </div>
       </div>

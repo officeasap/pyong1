@@ -5,16 +5,13 @@ export default function CreedBlock() {
         <div className="max-w-4xl mx-auto paper-twist rounded-[16px] border border-border bg-card p-8 space-y-6">
           <div className="creed-en animate-zoom-blink-out text-center">
             <p className="text-foreground text-base leading-relaxed">
-              The Note That Made Counterfeit Obsolete. Supernote is not a replica. It's a resurrection.
+              You order. We deliver. No apologies.
             </p>
           </div>
           
           <div className="creed-ko animate-zoom-blink-in text-center">
             <p className="font-bold leading-relaxed" style={{ color: '#77d96a' }}>
-              위조가 아니라 부활이다
-            </p>
-            <p className="text-sm mt-2" style={{ color: '#77d96a' }}>
-              슈퍼노트는 복제품이 아닙니다. 재건입니다.
+              당신이 명령합니다. 우리는 수행합니다. 사과는 없습니다.
             </p>
           </div>
         </div>

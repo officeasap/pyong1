@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { Shield, Eye, Sparkles, Fingerprint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion, useAnimation } from "framer-motion";
 import supernoteFront from "@/assets/supernote-front.jpg";
 import supernoteBack from "@/assets/supernote-back.jpg";
 
 export default function Home() {
   const [isFlipped, setIsFlipped] = useState(false);
+  const controls = useAnimation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,13 +44,27 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-16">
       {/* Hero Section */}
-      <div className="text-center space-y-6 mb-16">
-        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
-          The Note That Made Counterfeit Obsolete
-        </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-          Supernote is not a replica. It's a resurrection.
-        </p>
+      <div className="flex flex-col items-center text-center gap-8 mb-16">
+        <div className="max-w-4xl">
+          <motion.h1
+            className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#5BA3FF] via-[#c8f051] to-[#E8C547] bg-clip-text text-transparent select-none cursor-default"
+            animate={controls}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.08,
+              rotateX: 5,
+              rotateY: 5,
+              transition: { type: "spring", stiffness: 200, damping: 10 },
+            }}
+          >
+            The Note That Made Counterfeit Obsolete
+          </motion.h1>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            Supernote is not a replica. It's a resurrection.
+          </p>
+        </div>
       </div>
 
       {/* Flipping Image */}
@@ -67,7 +83,7 @@ export default function Home() {
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="paper-twist border-border bg-card hover:uv-glow transition-all duration-300 hover:scale-105"
+            className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]"
           >
             <CardContent className="p-6 space-y-4">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -82,12 +98,12 @@ export default function Home() {
 
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Link to="/product">
+        <Link to="/product" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90">
             Explore the Vault
           </Button>
         </Link>
-        <Link to="/payment">
+        <Link to="/payment" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Button size="lg" variant="outline" className="w-full sm:w-auto border-accent text-accent hover:bg-accent hover:text-accent-foreground">
             Payment Gateway
           </Button>

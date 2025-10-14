@@ -9,11 +9,11 @@ export default function Navigation() {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Product", path: "/product" },
     { name: "Payment", path: "/payment" },
     { name: "Order", path: "/order" },
     { name: "Tracking", path: "/tracking" },
-    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -21,6 +21,7 @@ export default function Navigation() {
 
   const handleLinkClick = () => {
     setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -31,17 +32,19 @@ export default function Navigation() {
             <span className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               PyongMint™
             </span>
-            <span className="text-xs text-muted-foreground">ASCENDANT</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? "text-primary" : "text-foreground"
+                onClick={handleLinkClick}
+                className={`text-sm font-medium px-4 py-2 rounded-[18px] transition-all duration-300 hover:animate-bounce hover:shadow-[0_0_20px_rgba(200,240,81,0.6)] ${
+                  isActive(link.path) 
+                    ? "bg-[#c8f051] text-background" 
+                    : "text-foreground hover:bg-[#c8f051] hover:text-background"
                 }`}
               >
                 {link.name}
@@ -68,10 +71,10 @@ export default function Navigation() {
                 key={link.path}
                 to={link.path}
                 onClick={handleLinkClick}
-                className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`block px-4 py-2 rounded-[18px] text-sm font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,240,81,0.6)] ${
                   isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-[#c8f051] text-background"
+                    : "text-foreground hover:bg-[#c8f051] hover:text-background"
                 }`}
               >
                 {link.name}

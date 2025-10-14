@@ -23,6 +23,7 @@ export default function Contact() {
     window.open(`https://t.me/pyongmint_bot?start=${encodedMessage}`, "_blank");
     
     toast.success("Opening Telegram to send your message");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setName("");
     setMessage("");
   };
@@ -43,7 +44,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Contact Form */}
-          <Card className="paper-twist border-border bg-card">
+          <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
             <CardContent className="p-8 space-y-6">
               <h2 className="text-2xl font-bold text-foreground">Send Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -75,7 +76,7 @@ export default function Contact() {
 
           {/* Contact Channels */}
           <div className="space-y-6">
-            <Card className="paper-twist border-border bg-card">
+            <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
               <CardContent className="p-6 space-y-4">
                 <h3 className="text-xl font-bold text-foreground">Direct Channels</h3>
                 <div className="space-y-3">
@@ -106,7 +107,7 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="paper-twist border-border bg-card">
+            <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
               <CardContent className="p-6 space-y-2">
                 <h3 className="text-lg font-bold text-foreground">Security Notice</h3>
                 <p className="text-sm text-muted-foreground">
@@ -119,15 +120,6 @@ export default function Contact() {
             </Card>
           </div>
         </div>
-
-        {/* Chatbot Fixed Button */}
-        <button
-          onClick={openTelegramChat}
-          className="fixed bottom-6 right-6 w-14 h-14 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center paper-twist uv-glow z-50 transition-transform hover:scale-110"
-          aria-label="Open Telegram Chat"
-        >
-          <MessageCircle className="w-6 h-6 text-primary-foreground" />
-        </button>
       </div>
     </div>
   );
