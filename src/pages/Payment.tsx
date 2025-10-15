@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Bitcoin, DollarSign, Coins } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -8,30 +7,26 @@ export default function Payment() {
     {
       name: "Bitcoin",
       symbol: "BTC",
-      icon: Bitcoin,
+      image: "/images/cryptopay.png",
       path: "/payment/btc",
-      color: "text-orange-500",
     },
     {
       name: "Ethereum",
       symbol: "ETH",
-      icon: Coins,
+      image: "/images/Eth.png",
       path: "/payment/eth",
-      color: "text-blue-500",
     },
     {
       name: "USD Coin",
       symbol: "USDC",
-      icon: DollarSign,
+      image: "/images/USDC.png",
       path: "/payment/usdc",
-      color: "text-blue-400",
     },
     {
       name: "Tether",
       symbol: "USDT",
-      icon: DollarSign,
+      image: "/images/Usdt.png",
       path: "/payment/usdt",
-      color: "text-green-500",
     },
   ];
 
@@ -51,8 +46,12 @@ export default function Payment() {
           <Link key={crypto.symbol} to={crypto.path} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <Card className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 cursor-pointer frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
               <CardContent className="p-6 text-center space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                  <crypto.icon className={`w-8 h-8 ${crypto.color}`} />
+                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={crypto.image}
+                    alt={`${crypto.name} icon`}
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-foreground">{crypto.name}</h3>
@@ -70,7 +69,8 @@ export default function Payment() {
             <h2 className="text-2xl font-bold text-foreground">Encrypted Transactions Only</h2>
             <p className="text-muted-foreground">
               All payments are processed through secure cryptocurrency networks. No fiat currencies accepted. 
-              No smart contracts. Direct wallet-to-wallet transfers only.
+              No smart contracts. Direct wallet-to-wallet transfers only. This gateway honors sovereignty, privacy, and mythic precision.
+ 
             </p>
             <div className="pt-4">
               <Link to="/order" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

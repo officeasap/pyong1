@@ -2,34 +2,38 @@ import { useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const cryptoData: Record<string, { name: string; address: string; qr: string }> = {
   btc: {
     name: "Bitcoin",
-    address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
-    qr: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23fff'/%3E%3Cpath d='M20,20h20v20h-20z M40,20h20v20h-20z M60,20h20v20h-20z M80,20h20v20h-20z M100,20h20v20h-20z M120,20h20v20h-20z M140,20h20v20h-20z M20,40h20v20h-20z M140,40h20v20h-20z M20,60h20v20h-20z M60,60h20v20h-20z M80,60h20v20h-20z M100,60h20v20h-20z M140,60h20v20h-20z M20,80h20v20h-20z M60,80h20v20h-20z M80,80h20v20h-20z M100,80h20v20h-20z M140,80h20v20h-20z M20,100h20v20h-20z M60,100h20v20h-20z M80,100h20v20h-20z M100,100h20v20h-20z M140,100h20v20h-20z M20,120h20v20h-20z M140,120h20v20h-20z M20,140h20v20h-20z M40,140h20v20h-20z M60,140h20v20h-20z M80,140h20v20h-20z M100,140h20v20h-20z M120,140h20v20h-20z M140,140h20v20h-20z M60,160h20v20h-20z M100,160h20v20h-20z M120,160h20v20h-20z' fill='%23000'/%3E%3C/svg%3E",
+    address: "bc1qyylx77zjsnme7myg2gs5tuv5yscapesjgzwhp2",
+    qr: "/images/QR-BTC.png",
   },
   eth: {
     name: "Ethereum",
-    address: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
-    qr: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23fff'/%3E%3Cpath d='M20,20h20v20h-20z M40,20h20v20h-20z M60,20h20v20h-20z M80,20h20v20h-20z M100,20h20v20h-20z M120,20h20v20h-20z M140,20h20v20h-20z M20,40h20v20h-20z M140,40h20v20h-20z M20,60h20v20h-20z M60,60h20v20h-20z M80,60h20v20h-20z M100,60h20v20h-20z M140,60h20v20h-20z M20,80h20v20h-20z M60,80h20v20h-20z M80,80h20v20h-20z M100,80h20v20h-20z M140,80h20v20h-20z M20,100h20v20h-20z M60,100h20v20h-20z M80,100h20v20h-20z M100,100h20v20h-20z M140,100h20v20h-20z M20,120h20v20h-20z M140,120h20v20h-20z M20,140h20v20h-20z M40,140h20v20h-20z M60,140h20v20h-20z M80,140h20v20h-20z M100,140h20v20h-20z M120,140h20v20h-20z M140,140h20v20h-20z M40,160h20v20h-20z M80,160h20v20h-20z M120,160h20v20h-20z' fill='%23000'/%3E%3C/svg%3E",
+    address: "0x1638943DD35ce2E99b595826d1F7d4C5A9a49b3b",
+    qr: "/images/QR-ETH.png",
   },
   usdc: {
     name: "USD Coin",
-    address: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
-    qr: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23fff'/%3E%3Cpath d='M20,20h20v20h-20z M40,20h20v20h-20z M60,20h20v20h-20z M80,20h20v20h-20z M100,20h20v20h-20z M120,20h20v20h-20z M140,20h20v20h-20z M20,40h20v20h-20z M140,40h20v20h-20z M20,60h20v20h-20z M60,60h20v20h-20z M80,60h20v20h-20z M100,60h20v20h-20z M140,60h20v20h-20z M20,80h20v20h-20z M60,80h20v20h-20z M80,80h20v20h-20z M100,80h20v20h-20z M140,80h20v20h-20z M20,100h20v20h-20z M60,100h20v20h-20z M80,100h20v20h-20z M100,100h20v20h-20z M140,100h20v20h-20z M20,120h20v20h-20z M140,120h20v20h-20z M20,140h20v20h-20z M40,140h20v20h-20z M60,140h20v20h-20z M80,140h20v20h-20z M100,140h20v20h-20z M120,140h20v20h-20z M140,140h20v20h-20z M80,160h20v20h-20z M100,160h20v20h-20z M140,160h20v20h-20z' fill='%23000'/%3E%3C/svg%3E",
+    address: "0x1638943DD35ce2E99b595826d1F7d4C5A9a49b3b",
+    qr: "/images/QR-USDC-BEP20.png",
   },
   usdt: {
     name: "Tether",
-    address: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
-    qr: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23fff'/%3E%3Cpath d='M20,20h20v20h-20z M40,20h20v20h-20z M60,20h20v20h-20z M80,20h20v20h-20z M100,20h20v20h-20z M120,20h20v20h-20z M140,20h20v20h-20z M20,40h20v20h-20z M140,40h20v20h-20z M20,60h20v20h-20z M60,60h20v20h-20z M80,60h20v20h-20z M100,60h20v20h-20z M140,60h20v20h-20z M20,80h20v20h-20z M60,80h20v20h-20z M80,80h20v20h-20z M100,80h20v20h-20z M140,80h20v20h-20z M20,100h20v20h-20z M60,100h20v20h-20z M80,100h20v20h-20z M100,100h20v20h-20z M140,100h20v20h-20z M20,120h20v20h-20z M140,120h20v20h-20z M20,140h20v20h-20z M40,140h20v20h-20z M60,140h20v20h-20z M80,140h20v20h-20z M100,140h20v20h-20z M120,140h20v20h-20z M140,140h20v20h-20z M20,160h20v20h-20z M60,160h20v20h-20z M100,160h20v20h-20z M140,160h20v20h-20z' fill='%23000'/%3E%3C/svg%3E",
+    address: "TSiKwQ7C6e3ZtJXbbojqKo13HGiFs18t5K",
+    qr: "/images/QR-USDT-TRC20.png",
   },
 };
 
 export default function PaymentCrypto() {
   const { crypto } = useParams<{ crypto: string }>();
   const data = crypto ? cryptoData[crypto] : null;
+  const [transactionLink, setTransactionLink] = useState("");
 
   if (!data) {
     return (
@@ -44,10 +48,10 @@ export default function PaymentCrypto() {
     toast.success("Address copied to clipboard");
   };
 
-  const handleTelegram = () => {
-    const message = `Payment for ${data.name}`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://t.me/pyongmint_bot?start=${encodedMessage}`, "_blank");
+  const handleForwardTransaction = () => {
+    const encoded = encodeURIComponent(`TX Confirmation for ${data.name}: ${transactionLink}`);
+    window.open(`https://t.me/pyongmint_bot?start=${encoded}`, "_blank");
+    toast.success("Transaction link forwarded securely");
   };
 
   return (
@@ -83,22 +87,41 @@ export default function PaymentCrypto() {
               </div>
             </div>
 
-            {/* Telegram Button */}
-            <Button
-              onClick={handleTelegram}
-              size="lg"
-              className="w-full bg-primary hover:bg-primary/90"
-            >
-              Contact via Telegram
-            </Button>
-
-            {/* Instructions */}
-            <div className="text-center space-y-2 pt-4 border-t border-border">
-              <p className="text-sm text-muted-foreground">
-                After completing the transaction, contact our secure Telegram channel to confirm your payment.
-              </p>
+            {/* Transaction Confirmation */}
+            <div className="pt-6 border-t border-border">
+              <h3 className="font-bold mb-4">{data.name} Transaction Confirmation Link</h3>
+              <div className="space-y-3">
+                <div>
+                  <Label htmlFor="tx-link">Enter your transaction confirmation</Label>
+                  <Input
+                    id="tx-link"
+                    placeholder={`Paste your ${data.name} transaction link`}
+                    value={transactionLink}
+                    onChange={(e) => setTransactionLink(e.target.value)}
+                    className="rounded-[12px] mt-2"
+                  />
+                </div>
+                <Button
+                  onClick={handleForwardTransaction}
+                  className="w-full rounded-[18px] hover-scale paper-twist"
+                >
+                  🔗 Forward Transaction Link
+                </Button>
+              </div>
             </div>
           </CardContent>
+        </Card>
+
+        {/* Instructions */}
+        <Card className="p-6 rounded-[16px] border-border bg-card">
+          <h3 className="text-lg font-bold mb-3">Payment Instructions</h3>
+          <ul className="space-y-2 text-sm text-foreground/70">
+            <li>• Send the exact amount to the wallet address above</li>
+            <li>• Copy your transaction confirmation link</li>
+            <li>• Paste and forward it using the form above</li>
+            <li>• Vault coordination and delivery details will follow via encrypted channels</li>
+            <li>• No smart contracts. No confirmations. No fee talk. Just delivery.</li>
+          </ul>
         </Card>
       </div>
     </div>

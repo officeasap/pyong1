@@ -35,22 +35,21 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={handleLinkClick}
-                className={`text-sm font-medium px-4 py-2 rounded-[18px] transition-all duration-300 hover:animate-bounce hover:shadow-[0_0_20px_rgba(200,240,81,0.6)] ${
-                  isActive(link.path) 
-                    ? "bg-[#c8f051] text-background" 
-                    : "text-foreground hover:bg-[#c8f051] hover:text-background"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+<div className="hidden md:flex items-center gap-4">
+  {navLinks.map((link) => (
+    <Link
+      key={link.path}
+      to={link.path}
+      onClick={handleLinkClick}
+      className={`text-sm font-medium px-4 py-2 rounded-[18px] bg-[#1f1f1f] text-white shadow-[0_0_3.7px_#c8f051] transition-all duration-300 hover:animate-bounce`}
+    >
+      {link.name}
+    </Link>
+  ))}
+</div>
+
+
+
 
           {/* Mobile Menu Button */}
           <Button
@@ -64,24 +63,21 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden py-4 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={handleLinkClick}
-                className={`block px-4 py-2 rounded-[18px] text-sm font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,240,81,0.6)] ${
-                  isActive(link.path)
-                    ? "bg-[#c8f051] text-background"
-                    : "text-foreground hover:bg-[#c8f051] hover:text-background"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        )}
+     {isOpen && (
+  <div className="md:hidden py-4 space-y-2">
+    {navLinks.map((link) => (
+      <Link
+        key={link.path}
+        to={link.path}
+        onClick={handleLinkClick}
+        className="block px-4 py-2 rounded-[18px] bg-[#1f1f1f] text-white shadow-[0_0_3.7px_#c8f051] transition-all duration-300 hover:animate-bounce"
+      >
+        {link.name}
+      </Link>
+    ))}
+  </div>
+)}
+      
       </div>
     </nav>
   );

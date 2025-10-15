@@ -34,93 +34,82 @@ export default function About() {
           </p>
         </div>
 
-        <Card className="paper-twist border-border bg-card signal-glow frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
-          <CardContent className="p-8 space-y-6">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
-                <span className="text-4xl">🏛️</span>
-              </div>
+     <Card className="paper-twist border-border bg-card signal-glow frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
+  <CardContent className="p-8 space-y-6">
+    <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden">
+      <img
+        src="/images/genesis-icon1.png"
+        alt="Supernote Story Icon"
+        className="w-full h-full object-cover"
+      />
+  
             </div>
             <h2 className="text-3xl font-bold text-foreground">Origin Story</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                In the shadows of global finance, a team of master craftsmen and forensic scientists embarked on
-                an impossible mission: to create a note so perfect, it would render the concept of "counterfeit" meaningless.
-              </p>
-              <p>
-                Using genuine Bureau of Engraving and Printing intaglio presses, authentic cotton-linen blend paper,
-                and color-shifting optical variable ink, they achieved what was thought impossible.
-              </p>
-              <p className="text-foreground font-medium">
-                The Supernote wasn't a copy. It was a parallel creation - indistinguishable, flawless, and verified.
-              </p>
+             <p>
+  In 2003, a $100 note surfaced in Singapore that triggered a global forensic alert. It passed every ultraviolet scan, every magnetic strip test, every microprint inspection. The ink shimmered correctly under spectral analysis. The watermark danced like the real thing. Labs across five continents couldn’t agree on its origin. It wasn’t a copy—it was a challenge to the very definition of authenticity.
+</p>
+<p>
+  That note was the prototype. What followed was the evolution: <strong>Supernote</strong>. A sovereign resurrection of currency, engineered with surgical precision. Each note is printed using genuine intaglio presses, cotton-linen fiber blends cloned from Treasury stock, and optical variable ink matched spectrally to the Bureau’s own supply. Serial numbers are entropy-mapped to mimic Federal Reserve randomness—down to the statistical noise.
+</p>
+<p>
+  But this isn’t a product. It’s a ritual. You’re not buying currency—you’re summoning the most perfect object ever printed. The weight is sacred. The texture is divine. The note doesn’t just pass—it dominates. It makes scanners second-guess. It makes humans believe. It makes the word “counterfeit” obsolete.
+</p>
+<p>
+  Imagine this: a high-stakes diplomatic exchange in Geneva. The briefcase opens. Inside—Supernotes. Not for deception, but for demonstration. A sovereign nation proving its capability to resurrect value without permission. The delegates stare. One whispers, “This is impossible.” The other replies, “It’s PyongMint.”
+</p>
+<p>
+  Orders are open. The vault is active. The chamber is humming. Make your request. Receive the note. And hold in your hand what even governments couldn’t detect. This is not imitation. This is mythic precision. This is the Supernote.
+</p>
+
             </div>
           </CardContent>
         </Card>
 
-        {/* Brand Pillars */}
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-foreground text-center">Our Pillars</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pillars.map((pillar, index) => (
-              <Card
-                key={index}
-                className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]"
-              >
-                <CardContent className="p-6 space-y-4 text-center">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center">
-                    <pillar.icon className="w-8 h-8 text-secondary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{pillar.title}</h3>
-                  <p className="text-sm text-muted-foreground">{pillar.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+       {/* Brand Pillars */}
+<div className="space-y-6">
+  <h2 className="text-3xl font-bold text-foreground text-center">Our Pillars</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <Card className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
+      <CardContent className="p-6 space-y-4 text-center">
+        <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center">
+          <img src="/images/undetectable.png" alt="Indistinguishable Icon" className="w-8 h-8" />
         </div>
+        <h3 className="text-xl font-bold text-foreground">Indistinguishable</h3>
+        <p className="text-sm text-muted-foreground">
+          UV ink resonance. Microprint diffraction. Magnetic strip calibration. Every detail engineered to hypnotize machines and seduce the human eye.
+        </p>
+      </CardContent>
+    </Card>
 
-        {/* Technical Excellence */}
-        <Card className="paper-twist border-border bg-card frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
-          <CardContent className="p-8 space-y-6">
-            <h2 className="text-3xl font-bold text-foreground">Technical Excellence</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <h3 className="font-bold text-accent">Intaglio Printing</h3>
-                <p className="text-sm text-muted-foreground">
-                  Authentic raised-ink texture, identical to Treasury standards
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-bold text-accent">Cotton-Linen Blend</h3>
-                <p className="text-sm text-muted-foreground">
-                  Genuine currency-grade paper with embedded security threads
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-bold text-accent">Color-Shifting Ink</h3>
-                <p className="text-sm text-muted-foreground">
-                  Optical variable ink that changes from copper to green
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-bold text-accent">UV Security Features</h3>
-                <p className="text-sm text-muted-foreground">
-                  Invisible elements that appear under ultraviolet examination
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Final Statement */}
-        <div className="text-center space-y-4">
-          <p className="text-2xl font-bold text-primary">
-            This is not replication. This is resurrection.
-          </p>
-          <p className="text-muted-foreground">
-            PyongMint™ - Where sovereignty meets perfection.
-          </p>
+    <Card className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
+      <CardContent className="p-6 space-y-4 text-center">
+        <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center">
+          <img src="/images/flawless.png" alt="Flawless Icon" className="w-8 h-8" />
         </div>
+        <h3 className="text-xl font-bold text-foreground">Flawless</h3>
+        <p className="text-sm text-muted-foreground">
+          The texture. The weight. The ink. The feel. It’s not printed—it’s summoned. Every note is a masterstroke of perfection.
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card className="paper-twist border-border bg-card hover:signal-glow transition-all duration-300 hover:scale-105 frame-bounce shadow-[0_0_20px_rgba(200,240,81,0.6)]">
+      <CardContent className="p-6 space-y-4 text-center">
+        <div className="w-16 h-16 mx-auto rounded-full bg-secondary/10 flex items-center justify-center">
+          <img src="/images/flawles.png" alt="Verified Icon" className="w-8 h-8" />
+        </div>
+        <h3 className="text-xl font-bold text-foreground">Verified</h3>
+        <p className="text-sm text-muted-foreground">
+          Each note passes a 12-point forensic simulation. If it doesn’t pass all 12, it’s incinerated. What survives is indistinguishable from truth.
+        </p>
+      </CardContent>
+    </Card>
+
+  </div>
+</div>
+
       </div>
     </div>
   );
