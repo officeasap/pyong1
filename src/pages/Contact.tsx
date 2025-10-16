@@ -18,18 +18,21 @@ export default function Contact() {
       return;
     }
 
-    const fullMessage = `Name: ${name}\n\nMessage: ${message}`;
+    const fullMessage = `Name: ${name}\nMessage: ${message}`;
     const encodedMessage = encodeURIComponent(fullMessage);
-    window.open(`https://t.me/pyongmint_bot?start=${encodedMessage}`, "_blank");
-    
+
+    const telegramLink = `https://t.me/pyongmbot?start=${encodedMessage}`;
+    window.open(telegramLink, "_blank", "noopener,noreferrer");
+
     toast.success("Opening Telegram to send your message");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     setName("");
     setMessage("");
   };
 
   const openTelegramChat = () => {
-    window.open("https://t.me/pyongmint_bot", "_blank");
+    window.open("https://t.me/pyongmbot", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -82,7 +85,7 @@ export default function Contact() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <MessageCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Telegram: @pyongmint_bot</span>
+                    <span className="text-sm">Telegram: @pyongmbot</span>
                   </div>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <Shield className="w-5 h-5 text-secondary" />

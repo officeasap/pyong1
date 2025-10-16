@@ -21,21 +21,24 @@ export default function Order() {
     { name: "Vault Collection", quantity: "500 notes", price: "$18,000", value: "vault" },
   ];
 
-  const handleOrder = () => {
-    if (!selectedPackage && !customAmount) {
-      toast.error("Please select a package or enter a custom amount");
-      return;
-    }
+ const handleOrder = () => {
+  if (!selectedPackage && !customAmount) {
+    toast.error("Select a package or enter a custom amount");
+    return;
+  }
 
-    const message = selectedPackage
-      ? `Order: ${packages.find((p) => p.value === selectedPackage)?.name}`
-      : `Custom Order: ${customAmount} notes`;
+  const message = selectedPackage
+    ? `Order Request: ${packages.find((p) => p.value === selectedPackage)?.name}`
+    : `Custom Vault Order: ${customAmount} notes`;
 
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://t.me/pyongmint_bot?start=${encodedMessage}`, "_blank");
-    toast.success("Opening Telegram for order confirmation");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const encodedMessage = encodeURIComponent(message);
+  const telegramLink = `https://t.me/pyongmbot?start=${encodedMessage}`;
+
+  window.open(telegramLink, "_blank", "noopener,noreferrer");
+  toast.success("Opening Telegram for encrypted order dispatch");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 
   return (
     <div className="container mx-auto px-4 py-16">

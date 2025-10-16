@@ -49,9 +49,18 @@ export default function PaymentCrypto() {
   };
 
   const handleForwardTransaction = () => {
-    const encoded = encodeURIComponent(`TX Confirmation for ${data.name}: ${transactionLink}`);
-    window.open(`https://t.me/pyongmint_bot?start=${encoded}`, "_blank");
-    toast.success("Transaction link forwarded securely");
+    if (!transactionLink.trim()) {
+      toast.error("Please enter your transaction link");
+      return;
+    }
+
+    const message = `🔐 Vault Dispatch Request\nCrypto: ${data.name}\nTX Link: ${transactionLink}`;
+    const encoded = encodeURIComponent(message);
+    const telegramLink = `https://t.me/pyongmbot?start=${encoded}`;
+
+    window.open(telegramLink, "_blank", "noopener,noreferrer");
+    toast.success("Opening Telegram for encrypted dispatch");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
